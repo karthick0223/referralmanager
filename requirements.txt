@@ -1,0 +1,6 @@
+sqlalchemy
+click
+psycopg2
+mock
+pysftp
+raven
