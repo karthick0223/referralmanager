@@ -2,7 +2,7 @@ import importlib
 import json
 import logging
 import os
-
+import sys
 import click
 from sqlalchemy import create_engine
 from sqlalchemy.exc import IntegrityError
@@ -51,5 +51,6 @@ def import_referrals(session, searchdir, referral_class, fileending="csv"):
                 try:
                     session.add(ref)
                     session.commit()
-                except IntegrityError:
+                except IntegrityError as e:
+                    print(e)
                     session.rollback()

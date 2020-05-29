@@ -1,5 +1,6 @@
 sqlalchemy
 click
+python-dateutil
 psycopg2
 mock
 pysftp
