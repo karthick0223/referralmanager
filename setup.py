@@ -5,7 +5,10 @@ from pip._internal.req import parse_requirements
 install_reqs = parse_requirements("requirements.txt", session=False)
 
 # reqs is a list of requirement
-reqs = [str(ir.req) for ir in install_reqs if ir.req is not None]
+try:
+	reqs = [str(ir.req) for ir in install_reqs if ir.req is not None]
+except:
+	reqs = [str(ir.requirement) for ir in install_reqs if ir.requirement is not None]
 
 setup(name='referralmanager',
       version='0.1.0',
